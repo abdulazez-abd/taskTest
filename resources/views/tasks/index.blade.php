@@ -11,6 +11,15 @@
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
                     <!-- New Task Form -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="store" method="POST" class="form-horizontal">
                         @csrf
                         <!-- Task Name -->
@@ -63,13 +72,14 @@
                                         </td>
                                         <!-- Task update Button -->
                                         <td>
-                                            <form action="update/{{$task->id}}" method="POST">
+                                            <form action="edit/{{$task->id}}" method="POST">
                                                 @csrf
                                               
-                                            <input type="text" name="name" value="{{$name->name}}" placeholder="
-                                            Enter the name" />
-                                             <input type="submit" class="btn btn-primary" value="Edit" />
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-btn fa-trash"></i>Edit
+                                                </button>
                                             </form>
+                                        
                                         </td>
                                     </tr>
                                 @endforeach
