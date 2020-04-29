@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="store" method="POST" class="form-horizontal">
+                    <form action="{{route('store')}}" method="POST" class="form-horizontal">
                         @csrf
                         <!-- Task Name -->
                         <div class="form-group">

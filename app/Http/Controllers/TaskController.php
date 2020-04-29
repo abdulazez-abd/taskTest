@@ -49,7 +49,7 @@ class TaskController extends Controller
 
     public function update(Request $request, $id)
     {
-        $task = Task::findOrFail(id);
+        $task = Task::findOrFail($id);
         $task->name = $request->name;
         $task->save();
         return redirect('/');  
